@@ -1,51 +1,37 @@
-# StarrTree AssetScout / Visual Studio
+# StarrTree Visual Asset Scout / Creative Director
 
-Turn informal design ideas into exact visual references, a visible Context Cluster, three different art directions, technical compatibility recommendations and a portable implementation prompt.
+The primary deliverable is a reusable agent workflow that makes website-building agents research, design, implement and verify distinctive websites. Max should not need to operate a separate tool for this process.
 
-## Working phone test
+Start with skills/starrtree-visual-asset-scout/SKILL.md and references/website-quality.md. AGENTS.md routes work in this repository to that workflow.
 
-The owner-private phone build is hosted through ChatGPT Sites. The verified link will be recorded in DEPLOYMENT.md after publication. Open it while signed into the owning ChatGPT account. No local Python, Node setup or Google credentials are required for that test.
+## Required behavior
 
-The current hosted build uses a dated read-only export from the canonical Motherboard. It is visibly labeled as a snapshot. Live Google OAuth is not connected; ask the Work agent to refresh the private hosted export. The Sheet remains the resource authority.
+1. Read the live Motherboard and understand the actual business, audience, assets and conversion goal.
+2. Inspect real visual precedents where supported; curate 2–4 references autonomously and translate their principles into the brand.
+3. Generate three substantially different directions, recommend the best fit, and proceed within existing authorization.
+4. Verify compatible reusable code, framework versions, licenses, performance, mobile and accessibility.
+5. Build the chosen experience in the actual website repository, from hero through conversion and closing sections.
+6. Review rendered composition, typography, motion states, narrative continuity, touch/keyboard/reduced motion and working conversion paths. Fix observed weaknesses before handoff.
 
-## Product surfaces
+For small fixes, preserve the approved art direction and scout only what is necessary. Do not restart full exploration or force a manual selection/approval ritual.
 
-- Discover: vocabulary-aware search with matched-term explanations and original source links.
-- Canvas: exact reference selection, reorder, brief, local cluster saves and JSON export/import.
-- Direct: three distinct composition/material/camera/interaction routes.
-- Prompt: explicit implementation asset selection, compatibility analysis and Markdown/JSON export.
-- Preview: schematic composition comparison and user-attached screenshots.
+The saved ChatGPT website-launch skill also invokes this Creative Director workflow for new sites and substantial visual work. Invocation depends on the receiving environment exposing the skills; this repository does not automatically install them into a separate PC.
 
-The local direction engine uses transparent rules, not a connected language model. The reusable agent skill in `skills/starrtree-visual-asset-scout` performs the live-read creative workflow in supported coding/chat environments. Visual tiles are labeled schematic sketches. Successful implementation evidence is required before promoting a pattern.
+## Canonical sources
 
-## Source data and privacy
+- Motherboard: https://docs.google.com/spreadsheets/d/1ljrT6D9KpRr_KS5Eque_W9T88H4tqOjvUUiXWEubDeQ/edit
+- Development specification: https://docs.google.com/document/d/1v-qXfUhvjuufDcxGih3efSMmFWaOgEgAng0nGlUxy7Q/edit
 
-This repository is public. Plaintext Motherboard exports, client briefs, keys and private source reports are excluded. It contains the full interface/engine, local read adapter, hosted access adapter, skill instructions and build/test code.
+Keep changing resource data in the Sheet. Preserve prompt/source provenance and distinguish retrieved terms, reconstructions, inferences and tested implementation results. Never represent reconstructed wording as a verified original creator prompt.
 
-The private ChatGPT Site contains the dated export under owner-only platform access. A separate optional Vercel adapter uses AES-GCM encryption and signed HttpOnly sessions; it requires server-side source/access keys. Its environment provisioning is not completed because Vercel project creation was rejected with HTTP 403. Do not interpret the adapter's presence as a working Vercel deployment.
+## Existing prototype
 
-## Local continuation
+web/, server.py and hosting adapters contain the earlier manual Visual Studio prototype. It browses references and assembles prompts, but it is not the requested default website-building workflow. Retain it as an experiment; do not require its use or extend it without an explicit request. DEPLOYMENT.md records its previous private test publication.
 
-1. Fetch a current Motherboard export using WORK-EXPORT-INSTRUCTIONS.md and place it in ignored `data/motherboard.json`.
-2. Run `python3 server.py`, or `py server.py` on Windows.
-3. Open http://127.0.0.1:8765.
+The rule-based UI is not the creative agent. The saved skill guides the actual coding/design agent and does not promise design awards. Award-caliber is an aspiration evaluated through concrete visual and functional evidence.
 
-For local live Google reads, set GOOGLE_SHEETS_ACCESS_TOKEN or use `python3 server.py --google-token`. The token is server-side only. The local adapter reads the canonical workbook in metadata-derived chunks.
+## Verification and privacy
 
-The web interface has a hosted login bootstrap. For local Python use, the server bypasses login by supplying normal snapshot/health routes; open the loopback URL without an access fragment.
+npm test covers hosted access/encryption behavior; engine tests need a configured encrypted source. npm run build builds the earlier interface. Those checks alone do not prove a client's website is well designed or functioning. Follow the skill's rendered-experience quality review.
 
-## Build and verification
-
-`npm run build` creates public/ from web/ without copying source exports into public assets. `npm test` runs hosted auth/encryption tests. Engine tests also run when SCOUT_DATA_KEY is configured for an encrypted snapshot. Original engine/server tests passed in the Work development run. No npm dependencies are required.
-
-## Vercel adapter (prepared, not deployed)
-
-`scripts/encrypt-source.mjs` turns a fresh export into `data/motherboard.encrypted.json`. It reads an externally provisioned base64 32-byte key from SCOUT_DATA_KEY, does not print or persist the key, and encrypts with AES-256-GCM.
-
-Required server environment: SCOUT_DATA_KEY and SCOUT_ACCESS_HASH (SHA-256 of a random private access token). The access link supplies the token as a browser fragment, exchanges it for a signed secure cookie, and removes the fragment from browser history. The snapshot/refresh routes reject unauthenticated requests. GOOGLE_SHEETS_ACCESS_TOKEN is optional.
-
-Never commit environment files or keys. Use the connected hosting provider's approved secret configuration workflow. Use the working private ChatGPT Site to test now.
-
-## Next useful slice
-
-Use one actual client brief in the hosted app, then add a schema-validated model adapter and authorized reference previews. Keep direct Motherboard refresh and approved pattern writeback scoped to that same canonical Sheet.
+This repository is public. Do not commit private Motherboard exports, client briefs or credentials. Existing source adapters support authorized data access; they do not authorize publishing the Sheet. No separate resource database is required.
