@@ -1,0 +1,13 @@
+import {mkdirSync,rmSync,cpSync,readFileSync,writeFileSync} from 'node:fs';
+const source=process.argv[2]||'data/motherboard.json';
+const data=JSON.parse(readFileSync(source));
+if(data.spreadsheetId!=='1ljrT6D9KpRr_KS5Eque_W9T88H4tqOjvUUiXWEubDeQ')throw Error('Use the canonical Motherboard export.');
+rmSync('dist',{recursive:true,force:true});mkdirSync('dist');cpSync('web','dist',{recursive:true});
+let app=readFileSync('web/app.mjs','utf8');
+const local=app.indexOf('async function unlock(token)');
+if(local<0)throw Error('Review the bootstrap after app schema changes.');
+app=app.slice(0,local)+`\ntry{const r=await fetch('/snapshot.json');if(!r.ok)throw Error('Source export could not load.');setBundle(await r.json(),'snapshot');render();}catch(e){document.querySelector('#app').textContent=e.message;}\n`;
+app=app.replace("async function refresh(){loading=true;", "async function refresh(){toast('This private test uses a dated export. Ask Starvis to refresh it from the live Sheet.');return;loading=true;");
+app=app.replace("${loading?'Reading…':'Refresh live'}","${loading?'Reading…':'Source freshness'}");
+writeFileSync('dist/app.mjs',app);writeFileSync('dist/snapshot.json',JSON.stringify(data));
+console.log('Private Sites build complete. Publish with owner-only access; never publish this dist directory publicly or commit it.');

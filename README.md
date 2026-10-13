@@ -40,7 +40,7 @@ The web interface has a hosted login bootstrap. For local Python use, the server
 
 ## Vercel adapter (prepared, not deployed)
 
-`scripts/encrypt-source.mjs` turns a fresh export into `data/motherboard.encrypted.json`. It prompts for an externally provisioned base64 32-byte key, does not print or persist the key, and encrypts with AES-256-GCM.
+`scripts/encrypt-source.mjs` turns a fresh export into `data/motherboard.encrypted.json`. It reads an externally provisioned base64 32-byte key from SCOUT_DATA_KEY, does not print or persist the key, and encrypts with AES-256-GCM.
 
 Required server environment: SCOUT_DATA_KEY and SCOUT_ACCESS_HASH (SHA-256 of a random private access token). The access link supplies the token as a browser fragment, exchanges it for a signed secure cookie, and removes the fragment from browser history. The snapshot/refresh routes reject unauthenticated requests. GOOGLE_SHEETS_ACCESS_TOKEN is optional.
 
