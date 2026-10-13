@@ -15,6 +15,8 @@ When website implementation is authorized, continue through working code and ver
 
 Treat award-caliber design as a quality aspiration assessed through composition, originality, motion craft, usability and execution. Never claim an award, nomination or guaranteed award-winning result. Read [website-quality.md](references/website-quality.md) for implementation and review criteria.
 
+Before defaulting to generic components on a new visual build, perform an asset-director pass: determine the actual image/vector/media pieces required by the chosen scene, preserve client work/identity, generate appropriate supporting art with available tools, and choreograph the result through the visitor journey. For layered PNG/cutout scenes, parallax, exploded assembly or scroll narrative, read [asset-direction.md](references/asset-direction.md). Own the asset manifest, reference-based consistency, actual alpha/alignment checks, scroll beat plan, project asset integration and mobile/static fallback. Do not require a paid video model or assume independent generated frames form a coherent animation.
+
 ## Ground the work
 
 Read the CURRENT live sources through connected Google Drive/Sheets tools. Load applicable skills and discover schemas before calls. Do not reuse a prior chat summary or bundled snapshot as a current read.
