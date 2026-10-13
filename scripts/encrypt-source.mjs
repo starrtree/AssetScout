@@ -1,0 +1,10 @@
+import {createCipheriv,randomBytes} from 'node:crypto';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+const key=process.env.SCOUT_DATA_KEY;
+if(!key||Buffer.from(key,'base64').length!==32)throw Error('Provision SCOUT_DATA_KEY as a base64 32-byte server secret before encrypting. Do not commit it.');
+const iv=randomBytes(12),c=createCipheriv('aes-256-gcm',Buffer.from(key,'base64'),iv);
+const input=readFileSync(process.argv[2]||'data/motherboard.json');
+const ciphertext=Buffer.concat([c.update(input),c.final()]);
+mkdirSync('data',{recursive:true});
+writeFileSync('data/motherboard.encrypted.json',JSON.stringify({version:1,algorithm:'aes-256-gcm',iv:iv.toString('base64'),tag:c.getAuthTag().toString('base64'),ciphertext:ciphertext.toString('base64')}));
+console.log('Encrypted source export written; key was not printed or saved.');
