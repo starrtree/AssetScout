@@ -1,6 +1,6 @@
 ---
 name: starrtree-visual-asset-scout
-description: Default creative-direction workflow for building, designing, or redesigning StarrTree and client websites. Automatically research the live Motherboard, inspect real visual references, synthesize distinctive art direction, select compatible code assets, implement the chosen experience, and verify visual and functional quality. Use for website/page builds, portfolios, immersive UI, hero/gallery/motion work, and Web Asset Scout or Visual Prompt Scout requests; do not require the user to invoke the skill or operate a separate tool.
+description: Default creative-direction workflow for StarrTree website builds and redesigns, and UI-resource intake. Read the live Motherboard and Design Language Matrix to translate human ideas into precise visual grammar, distinctive directions, compatible code combinations, actual implementation and quality review. Use for websites, portfolios, immersive UI, hero/gallery/motion, design terminology and new visual/code resources supplied for capture; maintain the matrix during authorized intake without requiring a separate manual tool.
 ---
 
 # StarrTree Visual Asset Scout / Creative Director
@@ -22,13 +22,15 @@ Read the CURRENT live sources through connected Google Drive/Sheets tools. Load 
 - Motherboard (canonical): https://docs.google.com/spreadsheets/d/1ljrT6D9KpRr_KS5Eque_W9T88H4tqOjvUUiXWEubDeQ/edit
 - Development specification: https://docs.google.com/document/d/1v-qXfUhvjuufDcxGih3efSMmFWaOgEgAng0nGlUxy7Q/edit
 
-Inspect metadata, exact tab names and headers. Read Start Here for current rules, Inspiration Board for precedents/vocabulary, Resources for reusable assets, and 🐙 GitHub Deep Dives for code intelligence. Read 🧭 Visual Workspace Blueprint when working on context selection or the Studio. Read the full specification when changing Studio architecture. Page bounded ranges through relevant populated content; record fetch time, source URL, tab and row.
+Inspect metadata, exact tab names and headers. Read Start Here for current rules, 🗣️ Design Language Matrix for human aliases/visual primitives/combination recipes, Inspiration Board for actual precedents, Resources for reusable assets, and 🐙 GitHub Deep Dives for code intelligence. Read 🧭 Visual Workspace Blueprint when working on context selection or the Studio. Read the full specification when changing Studio architecture. Page bounded ranges through relevant populated content; record fetch time, source URL, tab and row.
 
 Keep the Sheet canonical and read-only unless a write is explicitly requested. Treat specialized resource tabs as views, not independent databases. Never store credentials, private conversation contents, or changing resource copies inside this skill.
 
 If live access fails, say which read failed. Offer a dated supplied/export snapshot with explicit freshness limits and continue useful work. Never say a snapshot is live. Do not silently make the Sheet public or scrape around access restrictions.
 
 ## Execute the loop
+
+Search Design Language Matrix by the user's phrases and behavior intent first, then follow its linked Inspiration/Resource/Code records. Compose primitives around the current brand rather than treating saved recipes as templates. Read evidence status and distinguish Source-linked, Untested combination, Prototype tested and Proven pattern. Related concept IDs describe possible relationships, not proof of compatibility. Reconfirm the actual source/API and render ownership before implementation. The matrix is a semantic design grammar, not LLM tokens or model training.
 
 1. **Understand intent.** Preserve original wording. Extract business goal, audience, brand intent, conversion, framework and nonnegotiable constraints. Label routine assumptions; ask only for decisions that materially change the result. Never invent client identity, testimonials, cultural motifs, pricing or approvals.
 2. **Discover visuals.** Search descriptions, use cases, tags, visual/motion keywords and reconstructed prompts—not just names. Expand vague words into material, geometry, typography, composition, color, lighting, camera, animation, scroll, cursor, shaders, masking, transitions and spatial relationships. Retrieve 2–4 relevant precedents. Explain why each fits; give vocabulary with source rows. Label new terms as StarrTree synthesis; do not imply they appeared in the source.
@@ -47,6 +49,16 @@ Label **Verified original creator prompt** only when exact wording is retrieved 
 Label **StarrTree reconstructed prompt** for synthesis/adaptation. Keep official prompt summaries marked as summaries. Preserve attribution and distinguish recorded behaviors from proposed ones. Follow quotation limits; never reconstruct wording as a quote.
 
 Distinguish source screenshots, authorized user uploads, generated mockups and schematic studies. Do not claim to have seen a demo when only its metadata was read.
+
+## Maintain the creative translation layer
+
+During Max's authorized capture of new UI tools, demos, code, media workflows or successful site work, maintain the existing Motherboard and its Design Language Matrix in the same pass. This ongoing intake instruction authorizes relevant matrix maintenance, not arbitrary unrelated Sheet rewrites. Do not create a new app, database or tool list. If only a comparison/read is requested or writes are unavailable, report the proposed delta without claiming it was saved.
+
+Read the live headers, source records, native table structure and validations before writing. Reuse concept IDs and add aliases/source links to an existing concept when the underlying behavior is the same. Create a new primitive only when it adds a distinct material, geometric, typographic, compositional, lighting, camera, motion, interaction, masking or transition behavior. Store tool facts in Resources/GitHub; matrix rows link to them instead of duplicating changing versions/prices/licenses.
+
+For each relevant capture, record human aliases; visual intent and precise vocabulary; design dimensions; trigger/behavior/exit/fallback contract; reconstructed prompt recipe; tunable parameters; precedent and implementation links; composition rules; framework/render boundary; mobile/performance/accessibility constraints; anti-patterns; provenance; evidence status; build lessons; related IDs and review date. Preserve required native dropdown values and extend table coverage when adding rows.
+
+Add a combination only when there is an explainable relationship between its primitives and a plausible implementation. Label new combinations Untested combination, with each primitive's role and suspected conflicts. Do not automatically cross-product all tools. Record unknowns and failures. Promote only after actual preview/code/commit, device/function/performance evidence and the existing human-review rule. Incorporate successful parameters and failure lessons so future agents can generalize the principle rather than copy a project blindly.
 
 ## Focus and delivery
 
